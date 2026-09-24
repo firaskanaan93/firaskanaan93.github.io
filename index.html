@@ -1,6 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBJQ2YZGNW"></script>
     <script>
@@ -10,7 +27,6 @@
 
       gtag('config', 'G-GBJQ2YZGNW');
     </script>
-    <meta charset="utf-8" />
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -18,94 +34,592 @@
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "wr7h7gpmpb");
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Firas Kanaan | Senior Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Senior full stack developer with 8+ years building multi-tenant SaaS, API integrations and real-time systems with Laravel, Node.js, TypeScript and Vue.js."
+    />
     <meta name="author" content="Firas Kanaan" />
-    <meta name="keywords" content="Firas Kanaan, firaskanaan93, senior full stack developer, Laravel, Vue.js, Node.js, software engineer" />
-    <meta name="description" content="Senior Full Stack Developer specializing in Laravel, Node.js, Vue.js, SaaS platforms, APIs, real-time systems, and production infrastructure." />
-    <meta property="og:title" content="Firas Kanaan | Senior Full Stack Developer" />
-    <meta property="og:description" content="Laravel, Node.js, Vue.js, SaaS, real-time systems, APIs, Docker, and CI/CD." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://firaskanaan93.github.io/" />
-    <meta property="og:site_name" content="Firas Kanaan | Senior Full Stack Developer" />
-    <meta name="theme-color" content="#0b1220" />
+    <meta
+      name="keywords"
+      content="Firas Kanaan, firaskanaan93, senior full stack developer, senior software engineer, Laravel, Node.js, TypeScript, Vue.js, SaaS, real-time systems"
+    />
     <link rel="canonical" href="https://firaskanaan93.github.io/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Firas Kanaan" />
+    <meta property="og:title" content="Firas Kanaan | Senior Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Multi-tenant SaaS, API integrations and real-time systems with Laravel, Node.js, TypeScript, Vue.js, Docker and CI/CD."
+    />
+    <meta property="og:url" content="https://firaskanaan93.github.io/" />
+    <meta property="og:image" content="https://firaskanaan93.github.io/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Firas Kanaan, Senior Full Stack Developer" />
+    <meta property="profile:first_name" content="Firas" />
+    <meta property="profile:last_name" content="Kanaan" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Firas Kanaan | Senior Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Multi-tenant SaaS, API integrations and real-time systems with Laravel, Node.js, TypeScript and Vue.js."
+    />
+    <meta name="twitter:image" content="https://firaskanaan93.github.io/assets/og-image.jpg" />
+
+    <meta name="theme-color" content="#07111f" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="/styles.css" />
-    <title>Firas Kanaan | Senior Full Stack Developer</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Firas Kanaan",
+        "url": "https://firaskanaan93.github.io/",
+        "image": "https://firaskanaan93.github.io/assets/og-image.jpg",
+        "jobTitle": "Senior Full Stack Developer",
+        "email": "mailto:firaskanaan93@gmail.com",
+        "worksFor": { "@type": "Organization", "name": "String" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Ebla Private University" },
+          { "@type": "CollegeOrUniversity", "name": "University of Aleppo" }
+        ],
+        "knowsAbout": [
+          "Laravel",
+          "PHP",
+          "Node.js",
+          "TypeScript",
+          "Vue.js",
+          "Redis",
+          "MySQL",
+          "PostgreSQL",
+          "Docker",
+          "CI/CD",
+          "Socket.io",
+          "Multi-tenant SaaS",
+          "API integrations"
+        ],
+        "sameAs": ["https://github.com/firaskanaan93", "https://www.linkedin.com/in/firaskanaan1/"]
+      }
+    </script>
   </head>
   <body>
-    <canvas id="particles" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <main class="app" aria-labelledby="profile-name">
-      <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
-        <span class="theme-toggle__icon" aria-hidden="true"></span>
-      </button>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="#top" aria-label="Firas Kanaan, back to top">
+          <img class="brand__mark" src="/favicon.svg" alt="" width="36" height="36" />
+          <span class="brand__name">Firas Kanaan</span>
+        </a>
 
-      <section class="profile" aria-label="Profile">
-        <p class="eyebrow">Backend | Frontend | Infrastructure</p>
-        <h1 id="profile-name">Firas Kanaan</h1>
-        <p class="title">Senior Full Stack Developer</p>
-        <p class="summary">
-          I build scalable SaaS platforms, APIs, dashboards, integrations, and real-time systems with Laravel, Node.js,
-          Vue.js, Redis, Docker, and production-ready delivery practices.
-        </p>
-
-        <nav class="links" aria-label="Profile links">
-          <a
-            class="link-button"
-            href="https://github.com/firaskanaan93/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.51 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57A12 12 0 0 0 12 .5Z" />
-            </svg>
-            <span>GitHub</span>
-          </a>
-          <a
-            class="link-button"
-            href="https://www.linkedin.com/in/firaskanaan1/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05a3.75 3.75 0 0 1 3.38-1.86c3.61 0 4.28 2.38 4.28 5.47v6.29h-.02ZM5.32 7.42a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.03H3.54V8.98H7.1v11.47ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
-            </svg>
-            <span>LinkedIn</span>
-          </a>
-          <a
-            class="link-button"
-            href="/assets/Firas_Kanaan_CV.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M6 2.25A2.25 2.25 0 0 0 3.75 4.5v15A2.25 2.25 0 0 0 6 21.75h12a2.25 2.25 0 0 0 2.25-2.25V8.56a2.25 2.25 0 0 0-.66-1.59l-4.56-4.56a2.25 2.25 0 0 0-1.59-.66H6Zm7.5 1.69 4.56 4.56H13.5V3.94ZM8 12.25h8v1.5H8v-1.5Zm0 3h8v1.5H8v-1.5Zm0-6h4v1.5H8v-1.5Z" />
-            </svg>
-            <span>Resume</span>
-          </a>
-          <a
-            class="link-button"
-            href="mailto:firaskanaan93@gmail.com"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M2.25 6.75A2.25 2.25 0 0 1 4.5 4.5h15a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75Zm2.7-.75 7.05 5.29L19.05 6H4.95Zm15.3 1.5-7.58 5.68a1.13 1.13 0 0 1-1.34 0L3.75 7.5v9.75c0 .41.34.75.75.75h15a.75.75 0 0 0 .75-.75V7.5Z" />
-            </svg>
-            <span>Email</span>
-          </a>
+        <nav class="site-nav" id="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </nav>
+
+        <div class="site-header__actions">
+          <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle color theme">
+            <svg class="icon icon--sun" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5a1 1 0 0 1 1 1v1.5a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17.5a1 1 0 0 1 1 1V21a1 1 0 1 1-2 0v-.5a1 1 0 0 1 1-1ZM4.22 4.22a1 1 0 0 1 1.42 0l1.06 1.06a1 1 0 0 1-1.42 1.42L4.22 5.64a1 1 0 0 1 0-1.42Zm13.08 13.08a1 1 0 0 1 1.42 0l1.06 1.06a1 1 0 0 1-1.42 1.42l-1.06-1.06a1 1 0 0 1 0-1.42ZM2 12a1 1 0 0 1 1-1h1.5a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm17.5 0a1 1 0 0 1 1-1H21a1 1 0 1 1 0 2h-.5a1 1 0 0 1-1-1ZM6.7 17.3a1 1 0 0 1 0 1.42l-1.06 1.06a1 1 0 0 1-1.42-1.42l1.06-1.06a1 1 0 0 1 1.42 0ZM19.78 4.22a1 1 0 0 1 0 1.42L18.72 6.7a1 1 0 1 1-1.42-1.42l1.06-1.06a1 1 0 0 1 1.42 0Z" />
+            </svg>
+            <svg class="icon icon--moon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M21 14.3A8.5 8.5 0 0 1 9.7 3a.75.75 0 0 0-.97-.93A10 10 0 1 0 21.93 15.27a.75.75 0 0 0-.93-.97Z" />
+            </svg>
+          </button>
+          <a class="button button--small button--ghost header-resume" href="/assets/Firas_Kanaan_CV.pdf" target="_blank" rel="noopener">
+            Resume
+          </a>
+          <button
+            class="icon-button menu-toggle"
+            type="button"
+            data-menu-toggle
+            aria-controls="site-nav"
+            aria-expanded="false"
+            aria-label="Open menu"
+          >
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <canvas class="hero__canvas" data-particles aria-hidden="true"></canvas>
+
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="status">
+              <span class="status__dot" aria-hidden="true"></span>
+              Senior Software Engineer at String
+            </p>
+            <h1 id="hero-title">Firas Kanaan</h1>
+            <p class="hero__role">Senior Full Stack Developer</p>
+            <p class="hero__lead">
+              I design and build multi-tenant SaaS platforms, third-party API integrations and real-time systems with
+              Laravel, Node.js, TypeScript and Vue.js&nbsp;&mdash; and I own the path to production with Docker, CI/CD
+              and monitoring.
+            </p>
+
+            <div class="hero__actions">
+              <a class="button button--primary" href="mailto:firaskanaan93@gmail.com">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M2.25 6.75A2.25 2.25 0 0 1 4.5 4.5h15a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75Zm2.7-.75 7.05 5.29L19.05 6H4.95Zm15.3 1.5-7.58 5.68a1.13 1.13 0 0 1-1.34 0L3.75 7.5v9.75c0 .41.34.75.75.75h15a.75.75 0 0 0 .75-.75V7.5Z" />
+                </svg>
+                Get in touch
+              </a>
+              <a class="button button--ghost" href="/assets/Firas_Kanaan_CV.pdf" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M6 2.25A2.25 2.25 0 0 0 3.75 4.5v15A2.25 2.25 0 0 0 6 21.75h12a2.25 2.25 0 0 0 2.25-2.25V8.56a2.25 2.25 0 0 0-.66-1.59l-4.56-4.56a2.25 2.25 0 0 0-1.59-.66H6Zm7.5 1.69 4.56 4.56H13.5V3.94ZM8 12.25h8v1.5H8v-1.5Zm0 3h8v1.5H8v-1.5Zm0-6h4v1.5H8v-1.5Z" />
+                </svg>
+                View resume
+                <span class="visually-hidden">(PDF, opens in a new tab)</span>
+              </a>
+            </div>
+
+            <ul class="social">
+              <li>
+                <a class="social__link" href="https://github.com/firaskanaan93" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.51 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57A12 12 0 0 0 12 .5Z" />
+                  </svg>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a class="social__link" href="https://www.linkedin.com/in/firaskanaan1/" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05a3.75 3.75 0 0 1 3.38-1.86c3.61 0 4.28 2.38 4.28 5.47v6.29h-.02ZM5.32 7.42a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.03H3.54V8.98H7.1v11.47ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="glance" aria-labelledby="glance-title">
+            <h2 class="glance__title" id="glance-title">At a glance</h2>
+            <dl class="glance__list">
+              <div>
+                <dt>Experience</dt>
+                <dd>8+ years in full-stack web development</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>SaaS platforms, API integrations, real-time systems</dd>
+              </div>
+              <div>
+                <dt>Core stack</dt>
+                <dd>Laravel, Node.js, TypeScript, Vue.js</dd>
+              </div>
+              <div>
+                <dt>Data &amp; infra</dt>
+                <dd>MySQL, PostgreSQL, Redis, Docker, CI/CD</dd>
+              </div>
+              <div>
+                <dt>Recent teams</dt>
+                <dd>String, Dar Auction, Stallion AI</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
       </section>
 
-      <footer class="footer">
-        Designed and built by
-        <a href="https://firaskanaan93.github.io/" aria-label="Firas Kanaan website">Firas Kanaan</a>
-        <span aria-hidden="true">|</span>
-        <a href="https://github.com/firaskanaan93/firaskanaan93.github.io" target="_blank" rel="noreferrer">Source</a>
-      </footer>
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="section__header">
+            <p class="kicker">About</p>
+            <h2 id="about-title">Full-stack engineer, from schema to production</h2>
+          </div>
+
+          <div class="about">
+            <div class="about__text">
+              <p>
+                I'm a senior full stack engineer with 8+ years of experience delivering web applications end to end:
+                data models and APIs, Vue.js front ends, background processing, deployment pipelines and production
+                monitoring.
+              </p>
+              <p>
+                At String I build a multi-tenant marketing-automation SaaS with deep social-platform integrations.
+                Before that, at Dar Auction, I took a real-time auction platform from inception to production, owning
+                the Laravel API, the Socket.io bidding layer, the Vue.js website and the delivery pipeline.
+              </p>
+              <p>
+                Alongside hands-on engineering, I've introduced agile practices to teams, coordinated delivery across
+                multiple teams, and trained computer engineering students in Java, mobile development and Laravel.
+              </p>
+            </div>
+
+            <ul class="focus-grid">
+              <li class="card focus">
+                <svg class="focus__icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M4 5h16v4H4zM4 11h7v8H4zM13 11h7v8h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                </svg>
+                <h3>SaaS platforms</h3>
+                <p>Multi-tenant architecture with tenant isolation, RBAC, tenant-aware queues, usage metering and per-tenant billing.</p>
+              </li>
+              <li class="card focus">
+                <svg class="focus__icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M8 7 3 12l5 5M16 7l5 5-5 5M13.5 4l-3 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h3>API integrations</h3>
+                <p>Meta Graph, TikTok Business and Snapchat Marketing APIs with OAuth 2.0, token rotation, rate limits and signed webhooks.</p>
+              </li>
+              <li class="card focus">
+                <svg class="focus__icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                </svg>
+                <h3>Real-time systems</h3>
+                <p>Live bidding and instant updates with Socket.io, backed by a high-performance, secure Laravel API.</p>
+              </li>
+              <li class="card focus">
+                <svg class="focus__icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Zm-3.5 9 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h3>Reliability &amp; delivery</h3>
+                <p>Idempotent jobs, retries and dead-letter queues, monitoring and alerting, Docker environments and CI/CD pipelines.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+        <div class="container">
+          <div class="section__header">
+            <p class="kicker">Experience</p>
+            <h2 id="experience-title">Where I've worked</h2>
+          </div>
+
+          <ol class="timeline">
+            <li class="timeline__item">
+              <p class="timeline__date">
+                <time datetime="2025-01">Jan 2025</time> &ndash; Present
+              </p>
+              <article class="card role">
+                <header class="role__header">
+                  <h3>Senior Software Engineer <span class="role__company">&middot; String</span></h3>
+                  <p class="role__meta">Riyadh</p>
+                </header>
+                <ul class="role__points">
+                  <li>Build a multi-tenant marketing-automation SaaS for omnichannel campaigns.</li>
+                  <li>
+                    Integrated the Meta Graph, TikTok Business and Snapchat Marketing APIs, handling OAuth 2.0, token
+                    rotation, rate limits and signed webhooks.
+                  </li>
+                  <li>
+                    Delivered unified posting and analytics: a normalized post model, UTM capture, KPIs and scheduled
+                    publishing.
+                  </li>
+                  <li>Shipped cross-channel automation workflows across social, WhatsApp, email and SMS.</li>
+                  <li>Enforced tenant isolation, RBAC, tenant-aware queues, usage metering and per-tenant billing.</li>
+                  <li>
+                    Improved reliability with idempotent jobs, retries/DLQ and monitoring/alerts, scaling to high daily
+                    post volumes with low failure rates.
+                  </li>
+                  <li>Collaborated on landing-page and form builders that feed the CRM and customer journeys.</li>
+                </ul>
+                <ul class="tags">
+                  <li>Laravel</li>
+                  <li>Node.js</li>
+                  <li>TypeScript</li>
+                  <li>Vue.js</li>
+                  <li>Redis</li>
+                  <li>MySQL</li>
+                  <li>PostgreSQL</li>
+                  <li>Docker</li>
+                  <li>CI/CD</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline__item">
+              <p class="timeline__date">
+                <time datetime="2022-09">Sep 2022</time> &ndash; <time datetime="2025-01">Jan 2025</time>
+              </p>
+              <article class="card role">
+                <header class="role__header">
+                  <h3>Senior Software Engineer <span class="role__company">&middot; Dar Auction</span></h3>
+                  <p class="role__meta">Dubai</p>
+                </header>
+                <ul class="role__points">
+                  <li>Took the auction platform from inception to a fully operational product, providing technical leadership throughout.</li>
+                  <li>Designed and built a real-time auction application with Socket.io for live bidding updates.</li>
+                  <li>Developed and maintained a high-performance, scalable and secure Laravel API powering the platform.</li>
+                  <li>Led development of the Vue.js website, working closely with designers and stakeholders.</li>
+                  <li>
+                    Owned server setup, deployments and CI/CD pipelines, and managed Docker environments for consistent,
+                    scalable releases.
+                  </li>
+                  <li>Introduced agile practices to the team: daily stand-ups, sprint planning and retrospectives.</li>
+                </ul>
+                <ul class="tags">
+                  <li>Laravel</li>
+                  <li>Vue.js</li>
+                  <li>Socket.io</li>
+                  <li>Docker</li>
+                  <li>CI/CD</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline__item">
+              <p class="timeline__date">
+                <time datetime="2021-02">Feb 2021</time> &ndash; <time datetime="2022-09">Sep 2022</time>
+              </p>
+              <article class="card role">
+                <header class="role__header">
+                  <h3>Senior Software Engineer <span class="role__company">&middot; Stallion AI</span></h3>
+                  <p class="role__meta">Cairo</p>
+                </header>
+                <ul class="role__points">
+                  <li>Developed web applications for artificial-intelligence products.</li>
+                  <li>Refactored and upgraded the codebase from Laravel 5.7 to Laravel 8.</li>
+                  <li>Migrated file storage from local disk to Amazon S3.</li>
+                  <li>Recognized as the company's Hero of the Month (May 2021).</li>
+                </ul>
+                <ul class="tags">
+                  <li>Laravel</li>
+                  <li>PHP</li>
+                  <li>AWS S3</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline__item">
+              <p class="timeline__date">
+                <time datetime="2020-12">Dec 2020</time> &ndash; <time datetime="2021-02">Feb 2021</time>
+              </p>
+              <article class="card role">
+                <header class="role__header">
+                  <h3>Full-stack Developer <span class="role__company">&middot; Grow Up!</span></h3>
+                  <p class="role__meta">Lebanon &middot; Freelance</p>
+                </header>
+                <ul class="role__points">
+                  <li>Built an e-commerce system from scratch under a freelance contract.</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline__item">
+              <p class="timeline__date">
+                <time datetime="2018-01">Jan 2018</time> &ndash; <time datetime="2021-01">Jan 2021</time>
+              </p>
+              <article class="card role">
+                <header class="role__header">
+                  <h3>Senior Software Engineer <span class="role__company">&middot; 404Developers</span></h3>
+                  <p class="role__meta">Syria</p>
+                </header>
+                <ul class="role__points">
+                  <li>Built full-stack web and mobile applications and the APIs behind them.</li>
+                  <li>Managed complex projects end to end, coordinating planning and delivery across multiple teams.</li>
+                  <li>Delivered dashboards, reports, charts and data filtering, plus UI enhancements and debugging.</li>
+                  <li>Wrote functional and technical documentation for the applications.</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+
+          <div class="earlier">
+            <h3 class="earlier__title">Earlier</h3>
+            <ul class="earlier__list">
+              <li>
+                <p class="earlier__role">Training Specialist <span>&middot; Sanaya, Syria</span></p>
+                <p class="earlier__date"><time datetime="2017-09">Sep 2017</time> &ndash; <time datetime="2020-11">Nov 2020</time></p>
+                <p>Trained computer engineering students in Java, mobile application programming and Laravel web development, and ran project workshops.</p>
+              </li>
+              <li>
+                <p class="earlier__role">Software Engineer <span>&middot; Blue Ray Store, Syria</span></p>
+                <p class="earlier__date"><time datetime="2014-09">Sep 2014</time> &ndash; <time datetime="2017-11">Nov 2017</time></p>
+                <p>Programmed fire-protection and automation systems, and designed private networks for clients.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section__header">
+            <p class="kicker">Skills</p>
+            <h2 id="skills-title">Skills grounded in shipped work</h2>
+            <p class="section__intro">Grouped by how I use them day to day, based on the systems described above.</p>
+          </div>
+
+          <div class="skills-grid">
+            <section class="card skill-group" aria-labelledby="skills-backend">
+              <h3 id="skills-backend">Backend</h3>
+              <ul class="tags">
+                <li>PHP</li>
+                <li>Laravel</li>
+                <li>Node.js</li>
+                <li>TypeScript</li>
+                <li>REST APIs</li>
+                <li>Socket.io</li>
+                <li>Queues &amp; background jobs</li>
+              </ul>
+            </section>
+            <section class="card skill-group" aria-labelledby="skills-frontend">
+              <h3 id="skills-frontend">Frontend</h3>
+              <ul class="tags">
+                <li>Vue.js</li>
+                <li>Nuxt</li>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>HTML &amp; CSS</li>
+                <li>Dashboards &amp; reporting</li>
+              </ul>
+            </section>
+            <section class="card skill-group" aria-labelledby="skills-data">
+              <h3 id="skills-data">Data &amp; caching</h3>
+              <ul class="tags">
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>Redis</li>
+              </ul>
+            </section>
+            <section class="card skill-group" aria-labelledby="skills-devops">
+              <h3 id="skills-devops">DevOps &amp; cloud</h3>
+              <ul class="tags">
+                <li>Docker</li>
+                <li>CI/CD pipelines</li>
+                <li>Server setup &amp; deployment</li>
+                <li>AWS S3</li>
+                <li>Monitoring &amp; alerting</li>
+              </ul>
+            </section>
+            <section class="card skill-group" aria-labelledby="skills-integrations">
+              <h3 id="skills-integrations">Integrations</h3>
+              <ul class="tags">
+                <li>Meta Graph API</li>
+                <li>TikTok Business API</li>
+                <li>Snapchat Marketing API</li>
+                <li>OAuth 2.0</li>
+                <li>Signed webhooks</li>
+                <li>WhatsApp, email &amp; SMS</li>
+              </ul>
+            </section>
+            <section class="card skill-group" aria-labelledby="skills-architecture">
+              <h3 id="skills-architecture">Architecture</h3>
+              <ul class="tags">
+                <li>Multi-tenancy</li>
+                <li>RBAC</li>
+                <li>Idempotent jobs</li>
+                <li>Retries &amp; DLQ</li>
+                <li>Usage metering &amp; billing</li>
+                <li>Rate limiting</li>
+              </ul>
+            </section>
+            <section class="card skill-group skill-group--wide" aria-labelledby="skills-leadership">
+              <h3 id="skills-leadership">Leadership &amp; process</h3>
+              <ul class="tags">
+                <li>Technical leadership</li>
+                <li>Agile / Scrum</li>
+                <li>Project management</li>
+                <li>Cross-team coordination</li>
+                <li>Mentoring &amp; training</li>
+                <li>Technical documentation</li>
+              </ul>
+            </section>
+          </div>
+
+          <p class="skills-also"><strong>Also experienced with:</strong> Java, Android application development.</p>
+        </div>
+      </section>
+
+      <section class="section section--alt" id="education" aria-labelledby="education-title">
+        <div class="container">
+          <div class="section__header">
+            <p class="kicker">Education</p>
+            <h2 id="education-title">Education &amp; certifications</h2>
+          </div>
+
+          <div class="education-grid">
+            <article class="card credential">
+              <p class="credential__type">Degree</p>
+              <h3>Bachelor's degree, Computer Engineering</h3>
+              <p class="credential__issuer">Ebla Private University</p>
+            </article>
+            <article class="card credential">
+              <p class="credential__type">Diploma &middot; <time datetime="2012">2012</time> &ndash; <time datetime="2015">2015</time></p>
+              <h3>Computer Engineering, Networking</h3>
+              <p class="credential__issuer">Technological Institute of Computer Engineering, University of Aleppo</p>
+            </article>
+            <article class="card credential">
+              <p class="credential__type">Certification</p>
+              <h3>AWS Fundamentals: Going Cloud-Native</h3>
+              <p class="credential__issuer">Coursera</p>
+            </article>
+            <article class="card credential">
+              <p class="credential__type">Certification</p>
+              <h3>Node, Express &amp; MySQL Full-Stack Web Development</h3>
+              <p class="credential__issuer">Udemy</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="card contact__panel">
+            <div class="contact__text">
+              <p class="kicker">Contact</p>
+              <h2 id="contact-title">Let's talk</h2>
+              <p>Have a project, a role or a question? Email is the fastest way to reach me.</p>
+            </div>
+
+            <div class="contact__actions">
+              <div class="email-row">
+                <a class="button button--primary" href="mailto:firaskanaan93@gmail.com">firaskanaan93@gmail.com</a>
+                <button class="button button--ghost" type="button" data-copy="firaskanaan93@gmail.com">
+                  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                    <path d="M9 9h10v12H9zM5 15H4V3h11v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                  </svg>
+                  <span data-copy-label>Copy email</span>
+                </button>
+              </div>
+              <p class="visually-hidden" role="status" aria-live="polite" data-copy-status></p>
+              <ul class="social">
+                <li>
+                  <a class="social__link" href="https://www.linkedin.com/in/firaskanaan1/" target="_blank" rel="noopener">LinkedIn</a>
+                </li>
+                <li>
+                  <a class="social__link" href="https://github.com/firaskanaan93" target="_blank" rel="noopener">GitHub</a>
+                </li>
+                <li>
+                  <a class="social__link" href="/assets/Firas_Kanaan_CV.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <script src="/script.js"></script>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>&copy; <span data-year>2026</span> Firas Kanaan</p>
+        <p>
+          <a href="https://github.com/firaskanaan93/firaskanaan93.github.io" target="_blank" rel="noopener">Source</a>
+          <span class="site-footer__sep" aria-hidden="true">&middot;</span>
+          <a href="#top">Back to top</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
   </body>
 </html>
